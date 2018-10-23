@@ -11,17 +11,13 @@ branches:
 
 before_deploy: yarn buildstorybook
 deploy:
-  - provider: surge
-    project: ./build/
-    skip_cleanup: true
-    domain: gumdrops-develop.surge.sh  
-    on:
-      repo: gumgum/gumdrops
-      branch: feature/surge
-  - provider: surge
-    project: ./build/
-    skip_cleanup: true
-    domain: gumdrops.surge.sh  
-    on:
-      repo: gumgum/gumdrops
-      branch: master
+  provider: script
+  script: bash ./deploy.sh
+  skip_cleanup: true
+  on:
+    all_branches: true
+
+# This is a workaround to make PRs deploy
+# after_success:
+#   - chmod ugo+x ./deploy.sh
+#   - ./deploy.sh
