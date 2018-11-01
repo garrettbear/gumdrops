@@ -6,8 +6,14 @@ import charCodes from '../../constants/charCodes';
 
 class AccordionItem extends Component {
     state = {
-        isOpen: false
+        isOpen: this.props.isOpen
     };
+
+    static getDerivedStateFromProps({ isOpen }) {
+        return {
+            isOpen
+        };
+    }
 
     uid = generateUID(this);
 
@@ -27,7 +33,7 @@ class AccordionItem extends Component {
     };
 
     render() {
-        const { size, context, className, children, label } = this.props;
+        const { size, context, className, children, label, isOpen: isOpenProp } = this.props;
         const { isOpen } = this.state;
 
         const rootClass = cx('gds-accordion__item', className, {
@@ -89,9 +95,10 @@ AccordionItem.displayName = 'AccordionItem';
 AccordionItem.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
+    context: PropTypes.string,
+    isOpen: PropTypes.bool,
     label: PropTypes.string,
-    size: PropTypes.string,
-    context: PropTypes.string
+    size: PropTypes.string
 };
 
 export default AccordionItem;

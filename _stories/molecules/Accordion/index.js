@@ -1,5 +1,5 @@
 import React from 'react';
-import { text } from '@storybook/addon-knobs';
+import { text, boolean } from '@storybook/addon-knobs';
 import { optionalSelect } from '../../../components/utils/optionalSelect';
 
 import readme from './README.md';
@@ -22,6 +22,7 @@ const contextOptions = {
 const component = () => (
     <Accordion
         size={optionalSelect('Size', sizeOptions, '')}
+        isOpen={boolean('isOpen', false)}
         context={optionalSelect('Context', contextOptions, '')}
         className={text('Class', '')}>
         <AccordionItem label={text('Item Label 1', 'Item 1')}>
