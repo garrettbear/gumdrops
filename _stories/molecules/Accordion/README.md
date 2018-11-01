@@ -1,6 +1,17 @@
 The `<Accordion>` component is a collapsible container for holding related elements. Nest `<AccordionItem>` components inside `<Accordion>` for each drawer. Nest `<AccordionItemContent>` in each `<AccordionItem>` if you would like to display listed information within an open `<AccordionItem>`. Each `<Accordion>` related component accepts a className and otherProps so you are able to further customize the component.
 
-_Accordion example_:
+## Props
+
+The following props may be passed to configure the Accordion:
+
+| name     | type      | description                                                                   | Required |
+| -------- | --------- | ----------------------------------------------------------------------------- | -------- |
+| children | `Node`    | Children should be `<AccordionItem>`                                          | Yes      |
+| context  | `String`  | Indicate the context of the Accordion. One of `dark`, `white`, or `undefined` |          |
+| isOpen   | `Boolean` | Indicate if all `<AccordionItem>` children should be opened or closed         |          |
+| size     | `String`  | Indicate the size of the Accordion. One of `sm` or `undefined`                |          |
+
+## Examples
 
 You can use `<Accordion>` to display any information that you pass in, such as:
 
@@ -40,6 +51,6 @@ You can also use `<Accordion>` to display information in a list form, in the cas
 </Accordion>
 ```
 
-**Keyboard Accessibility:**
+## Keyboard Accessibility
 
 When an accordion is in focus you can toggle it expanded/collapsed with the spacebar or enter keys.
