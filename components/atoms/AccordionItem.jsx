@@ -33,7 +33,8 @@ class AccordionItem extends Component {
     };
 
     render() {
-        const { size, context, className, children, label, isOpen: isOpenProp } = this.props;
+        const { size, context, className, children, label } = this.props;
+
         const { isOpen } = this.state;
 
         const rootClass = cx('gds-accordion__item', className, {
